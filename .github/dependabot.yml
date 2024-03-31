@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "yourivw"
+    labels:
+      - "changelog:maintenance"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    reviewers:
+      - "yourivw"
+    labels:
+      - "changelog:maintenance"

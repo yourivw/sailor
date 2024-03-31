@@ -1,0 +1,43 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: Added
+    labels:
+      - 'changelog:added'
+  - title: Changed
+    labels:
+      - 'changelog:changed'
+  - title: Deprecated
+    labels:
+      - 'changelog:deprecated'
+  - title: Removed
+    labels:
+      - 'changelog:removed'
+  - title: Fixed
+    labels:
+      - 'changelog:fixed'
+  - title: Security
+    labels:
+      - 'changelog:security'
+  - title: 'Maintenance & updates'
+    labels:
+      - 'changelog:maintenance'
+change-template: '- $TITLE @$AUTHOR ([#$NUMBER](https://github.com/yourivw/sailor/pull/$NUMBER))'
+version-resolver:
+  major:
+    labels:
+      - 'changelog:removed'
+  minor:
+    labels:
+      - 'changelog:added'
+      - 'changelog:deprecated'
+  patch:
+    labels:
+      - 'changelog:fixed'
+      - 'changelog:security'
+      - 'changelog:maintenance'
+  default: patch
+template: |
+  $CHANGES
+exclude-labels:
+  - 'changelog:ignore'

@@ -1,0 +1,3 @@
+providers:
+  - Yourivw\Sailor\SailorServiceProvider
+  - Laravel\Sail\SailServiceProvider

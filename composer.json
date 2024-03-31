@@ -1,0 +1,56 @@
+{
+    "name": "yourivw/sailor",
+    "description": "Extension to Laravel Sail.",
+    "keywords": [
+        "laravel",
+        "sailor"
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/yourivw/sailor/issues",
+        "source": "https://github.com/yourivw/sailor"
+    },
+    "authors": [
+        {
+            "name": "Youri van Weegberg",
+            "email": "youri@yourivw.nl"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0",
+        "laravel/sail": "^1.26",
+        "symfony/yaml": "^6.0|^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.21|^9.0",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yourivw\\Sailor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yourivw\\Sailor\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yourivw\\Sailor\\SailorServiceProvider"
+            ],
+            "aliases": {
+                "Sailor": "Yourivw\\Sailor\\Facades\\Sailor"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

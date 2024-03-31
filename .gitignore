@@ -1,0 +1,7 @@
+/.vscode
+/coverage
+/vendor
+/workbench
+composer.lock
+docker-compose.yml
+.phpunit.result.cache

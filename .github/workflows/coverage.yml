@@ -1,0 +1,50 @@
+name: Analyse code coverage
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/**/*.php
+
+permissions:
+  contents: write
+ 
+jobs:
+  coverage:
+    name: Analyse code coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 10    
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+ 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+          tools: composer:v2
+ 
+      - name: Run composer install
+        run: |
+          composer require "laravel/framework:11.*" --no-interaction --no-update
+          composer install --prefer-dist --no-interaction
+ 
+      - name: Run PHPUnit tests with coverage
+        run: ./vendor/bin/phpunit --coverage-clover clover.xml
+
+      - name: Generate test coverage badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.1
+        with:
+          coverage_badge_path: 'output/badge-coverage.svg'
+          push_badge: false
+      
+      - name: Git push badge to image-data branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./output
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

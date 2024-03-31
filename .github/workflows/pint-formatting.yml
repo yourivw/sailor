@@ -1,0 +1,31 @@
+name: Pint formatting
+
+on:
+  pull_request:
+    paths:
+      - src/**/*.php
+
+permissions:
+  contents: write
+
+jobs:
+  pint:
+    name: Pint formatting
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+          
+      - name: Run formatting
+        uses: aglipanci/laravel-pint-action@2.4
+        with:
+          configPath: pint.json
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: 'Pint formatting 🍻'
