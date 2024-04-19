@@ -1,9 +1,11 @@
 {
     "name": "yourivw/sailor",
-    "description": "Extension to Laravel Sail.",
+    "description": "Extension to Laravel Sail, enabling the user to install additional services to the Sail installation.",
     "keywords": [
         "laravel",
-        "sailor"
+        "sailor",
+        "sail",
+        "docker"
     ],
     "license": "MIT",
     "support": {
