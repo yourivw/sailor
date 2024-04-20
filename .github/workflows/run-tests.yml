@@ -8,12 +8,12 @@ on:
     paths:
       - src/**/*.php
       - composer.json
-      - .github/workflows/**
+      - .github/workflows/run-tests.yml
   pull_request:
     paths:
       - src/**/*.php
       - composer.json
-      - .github/workflows/**
+      - .github/workflows/run-tests.yml
 
 jobs:
   tests:
